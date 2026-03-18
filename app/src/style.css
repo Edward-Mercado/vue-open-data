@@ -1,0 +1,35 @@
+/* font importing */
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+/* style modules */
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* font classes */
+
+
+.saira-stencil-one-title {
+    font-family: "Saira Stencil One", sans-serif;
+    font-weight: 800;
+  }
+
+.saira-stencil-one-subtitle {
+    font-family: "Saira Stencil One", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+.lexend-deca {
+    font-family: "Lexend Deca", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+.lexend-deca-bolded {
+    font-family: "Lexend Deca", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+  }
