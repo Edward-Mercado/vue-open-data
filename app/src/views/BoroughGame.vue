@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <BottomBar @rerollQuestion="getHotspotData(route.params.borough.toString())"></BottomBar>
+    <BottomBar @rerollQuestion="getHotspotData(route.params.borough as string)"></BottomBar>
 
 </template>
 
@@ -44,7 +44,7 @@ import { useRoute } from 'vue-router'
 import { watch, onBeforeMount, ref } from 'vue'
 import { getHotspotData } from '@/store/functions'
 import { getRandomParam } from '@/store/functions'
-import { hotspotData } from '@/store/variable_storage'
+import { hotspotData, type testableParamTemplate } from '@/store/variable_storage'
 import { createQuestion } from '@/store/functions'
 import { getRandomTargetVal } from '@/store/functions'
 import { themeObject } from '@/store/variable_storage'
@@ -57,7 +57,7 @@ import { streak } from '@/store/variable_storage'
 
 const route = useRoute()
 
-let boroughName = ref<string>(convertNumToBorough(parseInt(route.params.borough as string)))
+let boroughName = ref<string>(convertNumToBorough(parseInt(route.params.borough as string)) as string)
 let correct = ref<boolean>(false)
 
 function chooseOption(optionNumber: number) {
@@ -75,27 +75,38 @@ function chooseOption(optionNumber: number) {
 }
 
 onBeforeMount(() => {
-    getHotspotData(route.params.borough.toString())
+    getHotspotData(route.params.borough as string)
 
     let filter_1 = getRandomParam()
-    let targetValue_1 = getRandomTargetVal(filter_1)
+    let targetValue_1 = getRandomTargetVal(filter_1  as testableParamTemplate)
     let filter_2 = getRandomParam()
-    let targetValue_2 = getRandomTargetVal(filter_2)
-    createQuestion(hotspotData.value, filter_1, targetValue_1,
-    filter_2, targetValue_2, parseInt((route.params.borough).toString()))
+    let targetValue_2 = getRandomTargetVal(filter_2 as testableParamTemplate)
+    createQuestion(
+        hotspotData.value,
+        filter_1 as testableParamTemplate, 
+        targetValue_1 as (string | number),
+        filter_2  as testableParamTemplate, 
+        targetValue_2 as (string | number), 
+        parseInt(route.params.borough as string))
 })
 
 watch(() => route.params.borough, () => {
-    getHotspotData(route.params.borough.toString())
-    boroughName.value = convertNumToBorough(parseInt(route.params.borough as string))
+    getHotspotData(route.params.borough as string)
+    boroughName.value = convertNumToBorough(parseInt(route.params.borough as string)) as string
 })
 
 watch(() => hotspotData.value, () => { // everytime i run getHotspotData(), it will run this function, which asks the question
     let filter_1 = getRandomParam()
-    let targetValue_1 = getRandomTargetVal(filter_1)
+    let targetValue_1 = getRandomTargetVal(filter_1  as testableParamTemplate)
     let filter_2 = getRandomParam()
-    let targetValue_2 = getRandomTargetVal(filter_2)
-    createQuestion(hotspotData.value, filter_1, targetValue_1, filter_2, targetValue_2, parseInt(route.params.borough as string))
+    let targetValue_2 = getRandomTargetVal(filter_2  as testableParamTemplate)
+    createQuestion(
+        hotspotData.value,
+        filter_1 as testableParamTemplate, 
+        targetValue_1 as (string | number),
+        filter_2  as testableParamTemplate, 
+        targetValue_2 as (string | number), 
+        parseInt(route.params.borough as string))
     console.log(currentQuestion)
 })
 

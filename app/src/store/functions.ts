@@ -1,5 +1,5 @@
-import { ApiResponse, hotspotData, responseItem, themes, testableParams, 
-testableParamTemplate, questionChoice, questionData, themeObject, streak, currentQuestion } from "./variable_storage"
+import { hotspotData, themes, testableParams, themeObject, streak, currentQuestion } from "./variable_storage"
+import type { ApiResponse, responseItem, testableParamTemplate, questionChoice, questionData } from './variable_storage'
 
 import { reactive } from 'vue'
 
