@@ -33,7 +33,7 @@ const correctMessage = computed(() => {
 })
 
 function closeWindow() {
-    getHotspotData(route.params.borough.toString())
+    getHotspotData(route.params.borough as string)
     showingResults.value = false
 }
 

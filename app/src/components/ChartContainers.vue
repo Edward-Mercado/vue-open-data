@@ -14,7 +14,7 @@ import PieChart from './PieChart.vue';
 import NoData from './NoData.vue';
 import { currentQuestion, themeObject } from '@/store/variable_storage';
 import type { questionData } from '@/store/variable_storage';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
 
 defineProps({
     currentQuestion: {

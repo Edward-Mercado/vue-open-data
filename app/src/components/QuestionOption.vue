@@ -31,7 +31,8 @@
 <script setup lang="ts">
 import { themeObject } from '@/store/variable_storage';
 import type { questionChoice } from '@/store/variable_storage';
-import { PropType, ref } from 'vue'
+import type { PropType } from 'vue'
+import { ref } from 'vue'
 
 const isHovered = ref<boolean>(false)
 
