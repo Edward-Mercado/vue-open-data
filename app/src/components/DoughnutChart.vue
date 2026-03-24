@@ -4,7 +4,6 @@
   
   <script lang="ts">
   import * as d3 from 'd3'
-  import { PieArcDatum } from 'd3'
   import { currentQuestion } from '@/store/variable_storage'
   import { themeObject } from '@/store/variable_storage'
   
