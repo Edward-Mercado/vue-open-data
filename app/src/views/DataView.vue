@@ -21,7 +21,7 @@
             <AllBars :trait="'longitude'" :allDataInBorough="allDataInBorough" :theme="theme"></AllBars>
             <h3 :class="themeObject.color_6" class="text-xl text-center font-extrabold lexend-deca"> LONGITUDE </h3>
         </div>
-        <div data-aos="flip-left" class="w-[70vw] h-[70vw] bg-black/90 rounded-3xl my-4 py-4 flex flex-col justify-center items-center">
+        <div data-aos="flip-right" class="w-[70vw] h-[70vw] bg-black/90 rounded-3xl my-4 py-4 flex flex-col justify-center items-center">
             <AllDoughnuts :trait="'location_t'" :allDataInBorough="allDataInBorough" :theme="theme"></AllDoughnuts>
             <h3 :class="themeObject.color_6" class="text-xl text-center font-extrabold lexend-deca"> LOCATION TYPE </h3>
         </div>
@@ -29,7 +29,7 @@
             <AllDoughnuts :trait="'type'" :allDataInBorough="allDataInBorough" :theme="theme"></AllDoughnuts>
             <h3 :class="themeObject.color_6" class="text-xl text-center font-extrabold lexend-deca"> TYPE </h3>
         </div>
-        <div data-aos="flip-left" class="w-[70vw] h-[70vw] bg-black/90 rounded-3xl my-4 py-4 flex flex-col justify-center items-center">
+        <div data-aos="flip-right" class="w-[70vw] h-[70vw] bg-black/90 rounded-3xl my-4 py-4 flex flex-col justify-center items-center">
             <AllDoughnuts :trait="'provider'" :allDataInBorough="allDataInBorough" :theme="theme"></AllDoughnuts>
             <h3 :class="themeObject.color_6" class="text-xl text-center font-extrabold lexend-deca"> PROVIDER </h3>
         </div>
@@ -37,7 +37,7 @@
             <AllDoughnuts :trait="'latitude'" :allDataInBorough="allDataInBorough" :theme="theme"></AllDoughnuts>
             <h3 :class="themeObject.color_6" class="text-xl text-center font-extrabold lexend-deca"> LATITUDE </h3>
         </div>
-        <div data-aos="flip-left" class="w-[70vw] h-[70vw] bg-black/90 rounded-3xl my-4 py-4 flex flex-col justify-center items-center">
+        <div data-aos="flip-right" class="w-[70vw] h-[70vw] bg-black/90 rounded-3xl my-4 py-4 flex flex-col justify-center items-center">
             <AllDoughnuts :trait="'longitude'" :allDataInBorough="allDataInBorough" :theme="theme"></AllDoughnuts>
             <h3 :class="themeObject.color_6" class="text-xl text-center font-extrabold lexend-deca"> LONGITUDE </h3>
         </div>
