@@ -1,15 +1,7 @@
-import { hotspotData, themes, testableParams, themeObject, streak, currentQuestion } from "./variable_storage"
-import type { ApiResponse, responseItem, testableParamTemplate, questionChoice, questionData } from './variable_storage'
+import { hotspotData, themes, testableParams, themeObject, streak, currentQuestion, allDataInBorough } from "./variable_storage"
+import type { ApiResponse, responseItem, testableParamTemplate, questionChoice, questionData, allDataTemplate } from './variable_storage'
 
 import { reactive } from 'vue'
-
-export function makePieChart() {
-
-}
-
-export function makeBarChart() {
-
-}
 
 export async function getHotspotData(borocode:string) {
     try {
@@ -110,4 +102,24 @@ export function changeStreak(correct:boolean) {
         streak.value = 0
     }
     localStorage.setItem('streak', streak.value.toString())
+}
+
+export function resetBoroughData() {
+    Object.keys(allDataInBorough).forEach((key) => {
+        // @ts-ignore
+        allDataInBorough[key] = []
+    })
+}
+
+export function populateBoroughData(data: any[]) {
+    resetBoroughData()
+    testableParams.forEach((param) => {
+        param.possible_values.forEach((possibleValue) => {
+            let amount = filteredToNumberValid(data, param, possibleValue)
+            allDataInBorough[param.name as keyof typeof allDataInBorough].push({
+                value: possibleValue,
+                amount: amount
+            })
+        })
+    })
 }
