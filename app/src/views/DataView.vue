@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col justify-center items-center">
-
+        <h2 :class="themeObject.color_1" class="text-4xl text-center font-black saira-stencil-one-title"> HOTSPOT DATA IN {{ convertNumToBorough(parseInt(borough)) }} </h2>
         <div data-aos="flip-left" class="w-[95%] bg-black/90 rounded-3xl my-4 py-4">
             <AllBars :trait="'location_t'" :allDataInBorough="allDataInBorough" :theme="theme"></AllBars>
             <h3 :class="themeObject.color_6" class="text-xl text-center font-extrabold lexend-deca"> LOCATION TYPE </h3>
@@ -47,7 +47,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { onBeforeMount, watch } from 'vue';
-import { getHotspotData } from '@/store/functions';
+import { convertNumToBorough, getHotspotData } from '@/store/functions';
 import { populateBoroughData } from '@/store/functions';
 import { hotspotData } from '@/store/variable_storage';
 import { allDataInBorough } from '@/store/variable_storage';
