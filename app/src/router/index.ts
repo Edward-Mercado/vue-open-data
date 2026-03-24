@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import BoroughGame from '@/views/BoroughGame.vue'
 import SecretView from '@/views/SecretView.vue'
+import DataView from '@/views/DataView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,6 +18,10 @@ const router = createRouter({
     'path': '/secret/supersecretpath',
     'name': "hi-mr-whalen",
     "component": SecretView
+  },{
+    'path': '/view/:borough',
+    'name': "data-view",
+    "component": DataView
   }],
 })
 

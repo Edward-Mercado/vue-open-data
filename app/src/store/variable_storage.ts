@@ -10,6 +10,14 @@ export interface responseItem {
     borocode: string,
 }
 
+export interface allDataTemplate {
+    provider: object[],
+    type: object[],
+    location_t: object[],
+    latitude: object[],
+    longitude: object[]
+}
+
 export interface themeTemplate {
     bg: string[],
     bg_2: string[],
@@ -177,8 +185,16 @@ export const testableParams:testableParamTemplate[] = [
 },{
     name: 'longitude',
     round: true,
-    possible_values: [73.7, 73.8, 73.9, 74.0, 74.1, 74.2, 74.3]
+    possible_values: [-73.7, -73.8, -73.9, -74.0, -74.1, -74.2, -74.3]
 }]
+
+export const allDataInBorough = reactive<allDataTemplate>({
+    provider: [],
+    type: [],
+    location_t: [],
+    latitude: [],
+    longitude: []
+})
 
 export let currentQuestion = reactive<questionData>({
     option_one: {
