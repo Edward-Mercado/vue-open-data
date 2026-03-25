@@ -1,5 +1,5 @@
 <template>
-    <div>  
+    <div class="flex flex-col justify-around items-center">  
         <h2 :class="themeObject.color_1" class="text-4xl text-center font-black saira-stencil-one-title"> ALL HOTSPOTS IN NEW YORK CITY </h2>
         <MapContainer></MapContainer>
     </div>
@@ -14,6 +14,14 @@ import { themeObject } from '@/store/variable_storage';
 import HomeButton from '@/components/HomeButton.vue';
 import MapButton from '@/components/MapButton.vue';
 import MapContainer from '@/components/MapContainer.vue';
+
+import { getHotspotData } from '@/store/functions';
+import { populateCoordinates } from '@/store/functions';
+
+getHotspotData('all').then((allData) => {
+    populateCoordinates(allData)
+})
+
 </script>
 
 <style scoped>
