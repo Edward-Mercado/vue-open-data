@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row-reverse fixed right-3 w-[13%] bottom-[1%]">
+    <div class="flex flex-row-reverse fixed right-3 w-[13%] bottom-[1%] items-center">
         <home-button></home-button>
 
         <button @click="$emit('rerollQuestion')"
