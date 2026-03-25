@@ -1,7 +1,7 @@
 <template>
     <router-link to="/"
         :class="[themeObject.bg_2, themeObject.outline_1, themeObject.button_1, themeObject.outline_2]"
-        class="flex items-center justify-center rounded-full min-w-12 min-h-12 mx-2 p-[2%] hover:rotate-5 active:rotate-30 duration-200"
+        class="flex items-center justify-center rounded-full min-w-12 min-h-12 w-14 h-14 mx-2 hover:rotate-5 active:rotate-30 duration-200 p-[0.25%]"
         value="back-home" aria-label="back-home">
         <svg :class="themeObject.color_6" class="w-full h-full" viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"

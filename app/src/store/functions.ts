@@ -1,5 +1,5 @@
-import { hotspotData, themes, testableParams, themeObject, streak, currentQuestion, allDataInBorough } from "./variable_storage"
-import type { ApiResponse, responseItem, testableParamTemplate, questionChoice, questionData, allDataTemplate } from './variable_storage'
+import { hotspotData, themes, testableParams, themeObject, streak, currentQuestion, allDataInBorough, allCoordinates } from "./variable_storage"
+import type { ApiResponse, responseItem, testableParamTemplate, questionChoice, questionData } from './variable_storage'
 
 import { reactive } from 'vue'
 
@@ -12,12 +12,23 @@ export async function getHotspotData(borocode:string) {
         }
 
         const data:ApiResponse = await response.json()
-        hotspotData.value = Array.isArray(data) ? data.filter((item:responseItem) => item.borocode === borocode) : []
+        if(borocode === 'all') {
+            if(Array.isArray(data)) {
+                return data as any[]
+            } else {
+                return [] as any[]
+            }
+        } else {
+            hotspotData.value = Array.isArray(data) ? data.filter((item:responseItem) => item.borocode === borocode) : []
+    
+        }
+        
 
     } catch (error) {
         console.log(error)
         hotspotData.value = []
     }
+    return [] as any[]
 }
 
 export function getTheme(theme: string) {
@@ -111,8 +122,20 @@ export function resetBoroughData() {
     })
 }
 
+export function populateCoordinates(data: any[]) {
+    allCoordinates.value.length = 0
+    
+    data.forEach((datapoint) => {
+        allCoordinates.value.push([parseFloat(datapoint.longitude), parseFloat(datapoint.latitude)])
+    })
+    console.log(allCoordinates)
+}
+
 export function populateBoroughData(data: any[]) {
     resetBoroughData()
+    getHotspotData('all').then((allData) => {
+        populateCoordinates(allData)
+    })
     testableParams.forEach((param) => {
         param.possible_values.forEach((possibleValue) => {
             let amount = filteredToNumberValid(data, param, possibleValue)

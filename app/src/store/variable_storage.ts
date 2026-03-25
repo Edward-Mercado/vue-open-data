@@ -1,6 +1,7 @@
 import {ref, reactive} from 'vue'
 
 export const hotspotData = ref<any[]>([])
+export  const allCoordinates = ref<[number, number][]>([])
 
 export interface ApiResponse {
     results: any[]
@@ -33,7 +34,8 @@ export interface themeTemplate {
     outline_1: string[],
     outline_2: string[],
     choice: string[],
-    chart_colors: string[]
+    chart_colors: string[],
+    glass: string[]
 }
 
 export interface SingleParamTemplate {
@@ -64,7 +66,10 @@ export interface questionData {
 export const streak = ref<number>(parseInt(localStorage.getItem("streak") || "0") || 0)
 
 export const themes: 
-Record<string, { bg: string[]; bg_2: string[]; color_1: string[]; color_2: string[]; color_3: string[]; color_4: string[]; color_5: string[]; color_6: string[]; color_7: string[]; button_1: string[]; button_2: string[]; outline_1: string[]; outline_2: string[]; choice: string[]; chart_colors: string[] }> = {
+Record<string, { bg: string[]; bg_2: string[]; color_1: string[]; color_2: string[]; color_3: string[]; 
+    color_4: string[]; color_5: string[]; color_6: string[]; color_7: string[]; 
+    button_1: string[]; button_2: string[]; outline_1: string[]; outline_2: string[]; 
+    choice: string[]; chart_colors: string[]; glass: string[] }> = {
 dark: {
     bg: ['bg-linear-to-tr', 'from-black', 'to-purple-950'],
     bg_2: ['bg-purple-300'],
@@ -80,7 +85,8 @@ dark: {
     outline_1: ['border-purple-100', 'border-4'],
     outline_2: ['border-purple-700', 'border-4'],
     choice: ['hover:bg-purple-400', 'active:bg-purple-500'],
-    chart_colors: ['#ce99ff', '#bb60d6', "#fad1ff"]
+    chart_colors: ['#ce99ff', '#bb60d6', "#fad1ff"],
+    glass: ['bg-purple-900/50']
   },
   light: {
     bg: ['bg-linear-to-tr', 'from-cyan-300', 'to-blue-100'],
@@ -97,7 +103,8 @@ dark: {
     outline_1: ['border-blue-950', 'border-4'],
     outline_2: ['border-sky-500', 'border-4'],
     choice: ['hover:bg-blue-800', 'active:bg-sky-700'],
-    chart_colors: ['#195ab5', '#051d96', "#01093b"]
+    chart_colors: ['#195ab5', '#051d96', "#01093b"],
+    glass: ['bg-blue-300/50']
   },
   sunset: {
     bg: ['bg-linear-to-tr', 'from-pink-600', 'to-yellow-400'],
@@ -114,7 +121,8 @@ dark: {
     outline_1: ['border-rose-950', 'border-4'],
     outline_2: ['border-white', 'border-4'],
     choice: ['hover:bg-rose-900', 'active:bg-rose-700'],
-    chart_colors: ['#fff099', '#fcb1dc', "#541609"]
+    chart_colors: ['#fff099', '#fcb1dc', "#541609"],
+    glass: ['bg-red-500/60']
   },
 }
 
@@ -135,7 +143,8 @@ export const themeObject = reactive<themeTemplate>({
     outline_1: [],
     outline_2: [],
     choice: [],
-    chart_colors: []
+    chart_colors: [],
+    glass: []
 })
 
 export const APIParams:SingleParamTemplate[] = [

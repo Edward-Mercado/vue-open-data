@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import BoroughGame from '@/views/BoroughGame.vue'
 import SecretView from '@/views/SecretView.vue'
 import DataView from '@/views/DataView.vue'
+import MapView from '@/views/MapView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,10 @@ const router = createRouter({
     'path': '/view/:borough',
     'name': "data-view",
     "component": DataView
+  },{
+    'path': '/map-view',
+    'name': "map-view",
+    "component": MapView
   }],
 })
 

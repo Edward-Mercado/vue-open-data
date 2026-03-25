@@ -42,6 +42,10 @@
             <h3 :class="themeObject.color_6" class="text-xl text-center font-extrabold lexend-deca"> LONGITUDE </h3>
         </div>
     </div>
+    <div class="fixed bottom-[1%] right-[1%] flex flex-row justify-end">
+        <HomeButton class="z-10 h-[7%] w-[7%] p-0"></HomeButton>
+        <MapButton class="z-10 h-[7%] w-[7%] p-0"></MapButton>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -55,6 +59,9 @@ import { theme } from '@/store/variable_storage';
 import { themeObject } from '@/store/variable_storage';
 import AllBars from '@/components/AllBars.vue';
 import AllDoughnuts from '@/components/AllDoughnuts.vue';
+import MapContainer from '@/components/MapContainer.vue';
+import HomeButton from '@/components/HomeButton.vue';
+import MapButton from '@/components/MapButton.vue';
 import { onMounted } from 'vue';
 
 import AOS from 'aos'
